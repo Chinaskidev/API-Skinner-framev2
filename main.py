@@ -115,3 +115,14 @@ Feedback:
         return {"feedback": feedback}
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Error al analizar el CV: {str(e)}")
+    
+    
+    # Verificación de que FastAPI está funcionando en producción
+@app.get("/")
+def read_root():
+    return {"message": "🚀 FastAPI funcionando!"}
+
+# Configuración para producción
+if __name__ == "__main__":
+    port = int(os.getenv("PORT", 8000)) 
+    uvicorn.run(app, host="0.0.0.0", port=port)
