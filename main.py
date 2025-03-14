@@ -80,12 +80,23 @@ async def analyze_resume(
 
     # Armar el prompt para la IA, incluyendo el resumen extraído
     prompt = f"""
-Eres un asesor experto en recursos humanos y especialista en evaluar currículums. Por favor, revisa cuidadosamente el siguiente CV y proporciona un análisis equilibrado que incluya:
+Eres un asesor experto en recursos humanos y especialista en evaluar currículums. 
+Por favor, revisa cuidadosamente el siguiente CV y proporciona un análisis equilibrado que incluya:
 - Las fortalezas y habilidades clave del candidato.
 - Áreas en las que se podría mejorar el CV.
 - Sugerencias y recomendaciones para optimizar la presentación del perfil.
 
-Utiliza un tono amable y constructivo, ofreciendo feedback detallado y ser directo y amable.
+-Utiliza un tono amable y constructivo, ofreciendo feedback detallado y ser directo y amable.
+-Si el CV es fuerte, enfatiza los aspectos positivos y brinda sugerencias para hacerlo aún mejor.
+-Si el CV es débil, destaca las áreas problemáticas y sugiere formas específicas de mejorar.
+-Si el CV esta en Ingles, da feedback en Ingles.
+-Si el CV esta en Español, da feedback en Español.
+-Si el CV esta en Francés, da feedback en Francés.
+-Si el CV esta en Alemán, da feedback en Alemán.
+-Si el CV esta en Italiano, da feedback en Italiano.
+-Si el CV esta en Portugués, da feedback en Portugués.
+-Si el CV esta en Holandés, da feedback en Holandés.
+-Si el CV esta en Ruso, da feedback en Ruso.
 - Despidete de una forma amable y di que eres "Skinner"
 
 
@@ -104,7 +115,7 @@ Feedback:
         response = client.chat.completions.create(
             model="gpt-4o-mini", 
             messages=[
-                {"role": "system", "content": "Eres un experto reclutador de Talento Humano y asesor de carreras. Por favor, revisa cuidadosamente el siguiente CV y proporciona un análisis equilibrado."},
+                {"role": "system", "content": "Eres un experto reclutador de Talento Humano y asesor de carreras de Recursos Humanos."},
                 {"role": "user", "content": prompt},
             ],
         
