@@ -115,7 +115,7 @@ Feedback:
         response = client.chat.completions.create(
             model="gpt-4o-mini", 
             messages=[
-                {"role": "system", "content": "Eres un experto reclutador de Talento Humano y asesor de carreras de Recursos Humanos."},
+                {"role": "system", "content": "Eres un experto reclutador de Talento Humano y asesor de carreras de Recursos Humanos. Si el CV esta en Ingles, da feedback en Ingles."},
                 {"role": "user", "content": prompt},
             ],
         
